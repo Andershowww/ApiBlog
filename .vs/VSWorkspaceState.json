@@ -1,6 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Auth",
+    "\\Auth\\DTO",
+    "\\Auth\\Models",
+    "\\Post",
+    "\\Post\\Models",
+    "\\Properties",
+    "\\Tag",
+    "\\Tag\\Models"
   ],
+  "SelectedNode": "\\ApiBlog.sln",
   "PreviewInSolutionExplorer": false
 }

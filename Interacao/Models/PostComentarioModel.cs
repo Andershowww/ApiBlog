@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace ApiBlog.Post.Models
+namespace ApiBlog.Interacao.Models
 {
     [Table("PostComentario")]
     public class PostComentario
@@ -12,7 +12,7 @@ namespace ApiBlog.Post.Models
 
         [ForeignKey("Post")]
         public int IdPost { get; set; }
-        public Post Post { get; set; }
+        public ApiBlog.Post.Models.Post Post { get; set; }
 
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }

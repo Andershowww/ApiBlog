@@ -1,6 +1,7 @@
 ﻿namespace ApiBlog.Post.Models
 {
     using ApiBlog.Auth.Models;
+    using ApiBlog.Interacao.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -10,7 +11,7 @@
     public class Post
     {
         [Key]
-        public int IdPost { get; set; }
+        public int IDPost { get; set; }
 
         [Required, MaxLength(100)]
         public string Titulo { get; set; }
