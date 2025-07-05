@@ -10,4 +10,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Auth\Controllers\" />
+    <Folder Include="Auth\Repository\" />
+    <Folder Include="Post\Controllers\" />
+    <Folder Include="Post\Repository\" />
+    <Folder Include="Tag\Controllers\" />
+    <Folder Include="Tag\Repository\" />
+  </ItemGroup>
+
 </Project>
