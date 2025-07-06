@@ -1,4 +1,5 @@
 ﻿using ApiBlog.Data;
+using ApiBlog.DTO;
 using ApiBlog.Features.Auth.DTOs;
 using ApiBlog.Usuarios.Models;
 using Microsoft.AspNetCore.Identity;
@@ -32,8 +33,11 @@ namespace ApiBlog.Usuarios.Repository
             return await _context.Usuarios.AnyAsync(u =>
                 u.Email == email || u.Username == username);
         }
-        public async Task<bool> SeguirUsuario(int IDUsuarioSeguido, int IDUsuario)
+        public async Task<ResultadoAcao> SeguirUsuario(int IDUsuarioSeguido, int IDUsuario)
         {
+            var RelacaoJaExiste = _context.UsuariosSeguidos.Where(us => us.IdUsuarioSeguido == IDUsuarioSeguido && us.IdUsuario == IDUsuario).FirstOrDefault();
+            if (RelacaoJaExiste != null)
+                return ResultadoAcao.Falha("Usuário já seguido!");
             try
             {
                 var xNewSeguir = new UsuarioSeguido()
@@ -44,11 +48,14 @@ namespace ApiBlog.Usuarios.Repository
                 };
                 _context.Add(xNewSeguir);
                 await _context.SaveChangesAsync();
-                return true;
+                return ResultadoAcao.Ok("Usuário seguido com sucesso!");
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                return ResultadoAcao.Falha("Ocorreu um erro ao seguir o usuário! " + ex.Message);
+            }
         }
-        public async Task<bool> DeixarDeSeguirUsuario(int IDUsuarioSeguido, int IDUsuario)
+        public async Task<ResultadoAcao> DeixarDeSeguirUsuario(int IDUsuarioSeguido, int IDUsuario)
         {
             try
             {
@@ -57,13 +64,16 @@ namespace ApiBlog.Usuarios.Repository
                 {
                     _context.Remove(xNewSeguir);
                     await _context.SaveChangesAsync();
-                    return true;
+                    return ResultadoAcao.Falha("Você parou de seguir esse usuário com sucesso!");
                 }
                 else
-                    return false;
+                    return ResultadoAcao.Falha("Você já deixou de seguir esse usuário!");
 
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                return ResultadoAcao.Falha("Ocorreu um erro ao tentar deixar de seguir esse usuário!" + ex.Message);
+            }
         }
     }
 }

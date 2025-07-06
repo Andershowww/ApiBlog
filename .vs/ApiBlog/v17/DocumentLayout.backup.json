@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "E:\\Repos\\ApiBlog\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\auth\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:auth\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\post\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:post\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\timeline\\repository\\timelinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:timeline\\repository\\timelinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\timeline\\controllers\\timelinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:timeline\\controllers\\timelinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\usuarios\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:usuarios\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\usuarios\\models\\usuarioseguidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:usuarios\\models\\usuarioseguidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\post\\repository\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,18 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\post\\repository\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:post\\repository\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\usuarios\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:usuarios\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\timeline\\controllers\\timelinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:timeline\\controllers\\timelinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\timeline\\repository\\timelinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:timeline\\repository\\timelinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,21 +46,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IPostRepository.cs",
-              "DocumentMoniker": "E:\\Repos\\ApiBlog\\Post\\Repository\\IPostRepository.cs",
-              "RelativeDocumentMoniker": "Post\\Repository\\IPostRepository.cs",
-              "ToolTip": "E:\\Repos\\ApiBlog\\Post\\Repository\\IPostRepository.cs",
-              "RelativeToolTip": "Post\\Repository\\IPostRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T18:07:47.321Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{809f6ff3-8092-454a-8003-6d4091f9b5bb}"
@@ -88,58 +83,97 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "E:\\Repos\\ApiBlog\\Auth\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Auth\\Controllers\\AuthController.cs",
+              "ToolTip": "E:\\Repos\\ApiBlog\\Auth\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Auth\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T18:57:12.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioSeguidoModel.cs",
+              "DocumentMoniker": "E:\\Repos\\ApiBlog\\Usuarios\\Models\\UsuarioSeguidoModel.cs",
+              "RelativeDocumentMoniker": "Usuarios\\Models\\UsuarioSeguidoModel.cs",
+              "ToolTip": "E:\\Repos\\ApiBlog\\Usuarios\\Models\\UsuarioSeguidoModel.cs",
+              "RelativeToolTip": "Usuarios\\Models\\UsuarioSeguidoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T18:36:28.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IPostRepository.cs",
+              "DocumentMoniker": "E:\\Repos\\ApiBlog\\Post\\Repository\\IPostRepository.cs",
+              "RelativeDocumentMoniker": "Post\\Repository\\IPostRepository.cs",
+              "ToolTip": "E:\\Repos\\ApiBlog\\Post\\Repository\\IPostRepository.cs",
+              "RelativeToolTip": "Post\\Repository\\IPostRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T18:07:47.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PostController.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Post\\Controllers\\PostController.cs",
               "RelativeDocumentMoniker": "Post\\Controllers\\PostController.cs",
               "ToolTip": "E:\\Repos\\ApiBlog\\Post\\Controllers\\PostController.cs",
               "RelativeToolTip": "Post\\Controllers\\PostController.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAA0wKEAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-06T18:00:59.951Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Usuarios\\Repository\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "Usuarios\\Repository\\UsuarioRepository.cs",
               "ToolTip": "E:\\Repos\\ApiBlog\\Usuarios\\Repository\\UsuarioRepository.cs",
               "RelativeToolTip": "Usuarios\\Repository\\UsuarioRepository.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwEIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwDMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-06T17:59:08.753Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "TimelineController.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Timeline\\Controllers\\TimelineController.cs",
               "RelativeDocumentMoniker": "Timeline\\Controllers\\TimelineController.cs",
               "ToolTip": "E:\\Repos\\ApiBlog\\Timeline\\Controllers\\TimelineController.cs",
               "RelativeToolTip": "Timeline\\Controllers\\TimelineController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwBoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-06T17:55:00.998Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "TimelineRepository.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Timeline\\Repository\\TimelineRepository.cs",
               "RelativeDocumentMoniker": "Timeline\\Repository\\TimelineRepository.cs",
               "ToolTip": "E:\\Repos\\ApiBlog\\Timeline\\Repository\\TimelineRepository.cs",
               "RelativeToolTip": "Timeline\\Repository\\TimelineRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAkwDYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAiwEUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-06T15:12:48.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -152,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "PostRepository.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Post\\Repository\\PostRepository.cs",
               "RelativeDocumentMoniker": "Post\\Repository\\PostRepository.cs",

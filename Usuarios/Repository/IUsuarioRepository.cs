@@ -1,4 +1,5 @@
-﻿using ApiBlog.Features.Auth.DTOs;
+﻿using ApiBlog.DTO;
+using ApiBlog.Features.Auth.DTOs;
 using ApiBlog.Usuarios.Models;
 namespace ApiBlog.Usuarios.Repository
 {
@@ -6,8 +7,8 @@ namespace ApiBlog.Usuarios.Repository
     {
         Task<Usuario> CadastraNovoUsuario(RegisterRequest registroNovoUsuario);
         Task<bool> UsuarioExisteAsync(string email, string username);
-        Task<bool> SeguirUsuario(int IDUsuarioSeguido, int IDUsuario);
-        Task<bool> DeixarDeSeguirUsuario(int IDUsuarioSeguido, int IDUsuario);
+        Task<ResultadoAcao> SeguirUsuario(int IDUsuarioSeguido, int IDUsuario);
+        Task<ResultadoAcao> DeixarDeSeguirUsuario(int IDUsuarioSeguido, int IDUsuario);
       
     }
 }

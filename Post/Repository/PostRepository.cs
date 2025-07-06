@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ApiBlog.Timeline.DTO;
 using ApiBlog.Usuarios.Models;
+using ApiBlog.DTO;
+using System.Reflection.Metadata.Ecma335;
 
 
 namespace ApiBlog.Post.Repository
@@ -36,16 +38,23 @@ namespace ApiBlog.Post.Repository
             });
         }
 
-        public async Task CadastraPostTag(int IDPost, List<int> IdsTags)
+        public async Task<ResultadoAcao> CadastraPostTag(int IDPost, List<int> IdsTags)
         {
             var postTags = IdsTags.Select(tagId => new PostTag
             {
                 IdPost = IDPost,
                 IdTag = tagId
             }).ToList();
-
-            _context.PostsTags.AddRange(postTags);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.PostsTags.AddRange(postTags);
+                await _context.SaveChangesAsync();
+                return ResultadoAcao.Ok("Tags cadastradas com sucesso");
+            }
+            catch (Exception ex)
+            {
+                return ResultadoAcao.Falha("Ocorreu um erro ao cadastrar as tags" + ex.Message);
+            }
         }
 
         public async Task<Models.Post> ObterPostPorID(int IDPost)
@@ -53,39 +62,72 @@ namespace ApiBlog.Post.Repository
             return await _context.Posts.Include(p => p.PostTags).FirstOrDefaultAsync(p => p.IDPost == IDPost);
         }
 
-        public async Task AtualizarPost(Models.Post post)
+        public async Task<ResultadoAcao> AtualizarPost(Models.Post post)
         {
-            _context.Posts.Update(post);
-            await _context.SaveChangesAsync();
-        }
-        public async Task AtualizarTagsDoPost(int idPost, List<int> novasTags)
-        {
-            var tagsExistentes = _context.PostsTags.Where(pt => pt.IdPost == idPost);
-            _context.PostsTags.RemoveRange(tagsExistentes);
-            await _context.SaveChangesAsync();
-
-            var novasAssociacoes = novasTags.Select(tagId => new PostTag
+            try
             {
-                IdPost = idPost,
-                IdTag = tagId
-            }).ToList();
+                _context.Posts.Update(post);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return ResultadoAcao.Falha("Ocorreu um erro ao atualizar esse post, tente novamente mais tarde!");
+            }
 
-            _context.PostsTags.AddRange(novasAssociacoes);
-            await _context.SaveChangesAsync();
+            return ResultadoAcao.Ok("Post Atualizado com sucesso!");
         }
-        public async Task<bool> DeletaPost(int IDPost)
+        public async Task<ResultadoAcao> AtualizarTagsDoPost(int idPost, List<int> novasTags)
+        {
+            try
+            {
+                var tagsExistentes = _context.PostsTags.Where(pt => pt.IdPost == idPost);
+                _context.PostsTags.RemoveRange(tagsExistentes);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return ResultadoAcao.Falha("Ocorreu um erro ao remover as tags existentes.");
+            }
+            try
+            {
+                var novasAssociacoes = novasTags.Select(tagId => new PostTag
+                {
+                    IdPost = idPost,
+                    IdTag = tagId
+                }).ToList();
+
+                _context.PostsTags.AddRange(novasAssociacoes);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return ResultadoAcao.Falha("Ocorreu um erro ao cadastrar as tags do post!");
+            }
+            return ResultadoAcao.Ok("Tags atualizadas com sucesso!");
+        }
+        public async Task<ResultadoAcao> DeletaPost(int IDPost)
         {
             var post = _context.Posts.Where(p => p.IDPost == IDPost).FirstOrDefault();
             if (post != null)
             {
-                _context.Posts.Remove(post);
-                await _context.SaveChangesAsync();
-                return true;
+                try
+                {
+                    _context.Posts.Remove(post);
+                    await _context.SaveChangesAsync();
+                    return ResultadoAcao.Ok("Post deletado com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    return ResultadoAcao.Falha("Ocorreu um erro ao deletar o post." + ex.Message);
+                }
             }
-            return false;
+            return ResultadoAcao.Falha("O post indicado não foi encontrado, revise o id e tente novamente.");
         }
-        public async Task<bool> CurtirPost(int IDPost, int IDUsuario)
+        public async Task<ResultadoAcao> CurtirPost(int IDPost, int IDUsuario)
         {
+            var JaCurtiu = _context.PostsCurtidos.Where(pc => pc.IdPost == IDPost && pc.IdUsuario == IDUsuario).FirstOrDefault();
+            if (JaCurtiu != null)
+                return ResultadoAcao.Falha("Você já curtiu esse post!");
             try
             {
                 var xNewPostCurtido = new PostCurtido
@@ -97,30 +139,35 @@ namespace ApiBlog.Post.Repository
 
                 _context.Add(xNewPostCurtido);
                 await _context.SaveChangesAsync();
-                return true;
+                return ResultadoAcao.Ok("Post curtido com sucesso!");
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return ResultadoAcao.Falha("Ocorreu um erro ao curtir esse post!" + ex.Message);
             }
         }
 
-        public async Task<bool> RemoverCurtidaPost(int IDPost, int IDUsuario)
+        public async Task<ResultadoAcao> RemoverCurtidaPost(int IDPost, int IDUsuario)
         {
             try
             {
-                var xNewPostCurtido = _context.PostsCurtidos.Where(x => x.IdPost == IDPost && x.IdUsuario == IDUsuario);
-                _context.Remove(xNewPostCurtido);
-                await _context.SaveChangesAsync();
-                return true;
+                var xRemoverCurtidaPost = _context.PostsCurtidos.Where(x => x.IdPost == IDPost && x.IdUsuario == IDUsuario).FirstOrDefault();
+                if (xRemoverCurtidaPost != null)
+                {
+                    _context.Remove(xRemoverCurtidaPost);
+                    await _context.SaveChangesAsync();
+                    return ResultadoAcao.Ok("Você removeu a curtida com sucesso!");
+                }
+                else
+                    return ResultadoAcao.Falha("Ocorreu um erro, a curtida já foi removida!");
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return ResultadoAcao.Falha("Ocorreu um erro ao remover a curtida!" + ex.Message);
             }
         }
 
-        public async Task<bool> Comentario(ComentarioRequest request, int IDUsuario)
+        public async Task<ResultadoAcao> Comentario(ComentarioRequest request, int IDUsuario)
         {
             try
             {
@@ -134,11 +181,11 @@ namespace ApiBlog.Post.Repository
                 };
                 _context.Add(xNewPostComentario);
                 await _context.SaveChangesAsync();
-                return true;
+                return ResultadoAcao.Ok("Comentário salvo com sucesso!");
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return ResultadoAcao.Falha("Ocorreu um erro ao salvar seu comentário!" + ex.Message);
             }
         }
 
@@ -159,8 +206,8 @@ namespace ApiBlog.Post.Repository
                      DataCriacao = p.DataCriacao,
                      TotalCurtidas = p.Curtidas.Count,
                      Tags = p.PostTags.Select(pt => pt.Tag.Nome).ToList(),
-                     AutorId=p.IdUsuario,
-                     AutorUsername=p.Usuario.Username,
+                     AutorId = p.IdUsuario,
+                     AutorUsername = p.Usuario.Username,
                      Comentarios = p.Comentarios.Select(c => new ComentarioResponse
                      {
                          IdUsuario = c.IdUsuario,

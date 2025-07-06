@@ -33,11 +33,10 @@ namespace ApiBlog.Auth.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-
             var usuarioJaExiste = await _usuarioRepository.UsuarioExisteAsync(registroNovoUsuario.Email, registroNovoUsuario.Username);
 
             if (usuarioJaExiste)
-                return Conflict("Usuário ou email já está em uso.");
+                return Conflict("Usuário ou email já cadastrados.");
 
             var usuario = await _usuarioRepository.CadastraNovoUsuario(registroNovoUsuario);
             return Ok(new AuthResponse

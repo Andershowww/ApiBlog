@@ -18,7 +18,7 @@ namespace ApiBlog.Usuarios.Controllers
 
         public UsuarioController(IUsuarioRepository usuarioRepository)
         {
-            _usuarioRepository= usuarioRepository;
+            _usuarioRepository = usuarioRepository;
         }
         [EnableCors]
         [HttpPost("{id}/Seguir")]
@@ -30,10 +30,10 @@ namespace ApiBlog.Usuarios.Controllers
             int idUsuario = int.Parse(userIdClaim.Value);
             if (idUsuario == id)
                 return BadRequest("Você não pode seguir sua própria conta");
-            bool comentou = await _usuarioRepository.SeguirUsuario(id, idUsuario);
-            if (!comentou)
-                return BadRequest("Ocorreu um erro ao seguir esse usuário, tente novamente mais tarde.");
-            return Ok("Usuário seguido com sucesso.");
+            var retorno = await _usuarioRepository.SeguirUsuario(id, idUsuario);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
         }
 
         [EnableCors]
@@ -46,10 +46,10 @@ namespace ApiBlog.Usuarios.Controllers
             int idUsuario = int.Parse(userIdClaim.Value);
             if (idUsuario == id)
                 return BadRequest("Essa operação só é permitida com outros usuários");
-            bool comentou = await _usuarioRepository.DeixarDeSeguirUsuario(id, idUsuario);
-            if (!comentou)
-                return BadRequest("Ocorreu um erro ao deixar de seguir esse usuário, tente novamente mais tarde.");
-            return Ok("Você parou de seguir esse usuário com sucesso.");
+            var retorno = await _usuarioRepository.DeixarDeSeguirUsuario(id, idUsuario);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
         }
     }
 }

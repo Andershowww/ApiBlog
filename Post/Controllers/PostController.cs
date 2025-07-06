@@ -54,9 +54,10 @@ namespace ApiBlog.Post.Controllers
             if (tags != null && tags.Any())
             {
                 var idsTags = tags.Select(t => t.IdTag).ToList();
-                await _postRepository.CadastraPostTag(postCriado.IDPost, idsTags);
+                var retorno = await _postRepository.CadastraPostTag(postCriado.IDPost, idsTags);
+                if (!retorno.Sucesso)
+                    return BadRequest(retorno.Mensagem);
             }
-
             return Ok("Post cadastrado com sucesso.");
         }
 
@@ -82,9 +83,10 @@ namespace ApiBlog.Post.Controllers
             postExistente.Titulo = postAtualizado.Titulo;
             postExistente.Corpo = postAtualizado.Corpo;
 
-            await _postRepository.AtualizarPost(postExistente);
-
-            return Ok("Post atualizado com sucesso.");
+            var retorno = await _postRepository.AtualizarPost(postExistente);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
 
         }
 
@@ -110,8 +112,10 @@ namespace ApiBlog.Post.Controllers
             var novasTags = await _tagRepository.CadastraTag(Tags.Nomes);
             var idsNovasTags = novasTags.Select(t => t.IdTag).ToList();
 
-            await _postRepository.AtualizarTagsDoPost(postExistente.IDPost, idsNovasTags);
-            return Ok("Tags atualizadas com sucesso.");
+            var retorno = await _postRepository.AtualizarTagsDoPost(postExistente.IDPost, idsNovasTags);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
         }
 
         [EnableCors]
@@ -130,11 +134,11 @@ namespace ApiBlog.Post.Controllers
             if (postExistente.IdUsuario != idUsuario)
                 return Forbid("Você não tem permissão para editar este post.");
 
-            bool deletou = await _postRepository.DeletaPost(id);
-            if (!deletou)
-                return BadRequest("Ocorreu um erro ao deletar o post.");
+            var retorno = await _postRepository.DeletaPost(id);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
 
-            return Ok("Post deletado com sucesso.");
+            return Ok(retorno.Mensagem);
         }
 
         [EnableCors]
@@ -145,24 +149,24 @@ namespace ApiBlog.Post.Controllers
             if (userIdClaim == null)
                 return Unauthorized("Usuário não autenticado.");
             int idUsuario = int.Parse(userIdClaim.Value);
-            bool curtiu = await _postRepository.CurtirPost(id, idUsuario);
-            if (!curtiu)
-                return BadRequest("Ocorreu um erro ao curtir esse post, tente novamente mais tarde.");
-            return Ok("Post curtido com sucesso.");
+            var retorno = await _postRepository.CurtirPost(id, idUsuario);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
         }
 
         [EnableCors]
-        [HttpDelete("{id}/Curtida")]
+        [HttpDelete("{id}/Curtir")]
         public async Task<IActionResult> Descurtir(int id)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
                 return Unauthorized("Usuário não autenticado.");
             int idUsuario = int.Parse(userIdClaim.Value);
-            bool descurtiu = await _postRepository.RemoverCurtidaPost(id, idUsuario);
-            if (!descurtiu)
-                return BadRequest("Ocorreu um erro ao dar dislike esse post, tente novamente mais tarde.");
-            return Ok("Você deu dislike nesse post com sucesso.");
+            var retorno = await _postRepository.RemoverCurtidaPost(id, idUsuario);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
         }
 
         [EnableCors]
@@ -173,10 +177,10 @@ namespace ApiBlog.Post.Controllers
             if (userIdClaim == null)
                 return Unauthorized("Usuário não autenticado.");
             int idUsuario = int.Parse(userIdClaim.Value);
-            bool comentou = await _postRepository.Comentario(request, idUsuario);
-            if (!comentou)
-                return BadRequest("Ocorreu um erro ao comentar nesse post, tente novamente mais tarde.");
-            return Ok("Comentário salvo com sucesso.");
+            var retorno = await _postRepository.Comentario(request, idUsuario);
+            if (!retorno.Sucesso)
+                return BadRequest(retorno.Mensagem);
+            return Ok(retorno.Mensagem);
         }
 
         [EnableCors]
