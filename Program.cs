@@ -9,6 +9,7 @@ using System.Text;
 using ApiBlog.Post.Repository;
 using ApiBlog.Tag.Repository;
 using ApiBlog.Interacao.Repository;
+using ApiBlog.Usuario.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

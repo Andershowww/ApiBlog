@@ -1,6 +1,5 @@
-﻿namespace ApiBlog.Auth.Models
+﻿namespace ApiBlog.Usuario.Models
 {
-    using ApiBlog.Interacao.Models;
     using ApiBlog.Post.Models;
     using Microsoft.Extensions.Hosting;
     using System;

@@ -1,5 +1,4 @@
-﻿using ApiBlog.Auth.Models;
-using ApiBlog.Features.Auth.DTOs;
+﻿using ApiBlog.Features.Auth.DTOs;
 
 namespace ApiBlog.Auth.Repository
 {

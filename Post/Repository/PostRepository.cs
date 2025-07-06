@@ -6,6 +6,7 @@ using ApiBlog.Post.DTO;
 using ApiBlog.Post.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using ApiBlog.Interacao.Models;
 
 namespace ApiBlog.Post.Repository
 {
@@ -80,6 +81,62 @@ namespace ApiBlog.Post.Repository
                 return true;
             }
             return false;
+        }
+        public async Task<bool> CurtirPost(int IDPost, int IDUsuario)
+        {
+            try
+            {
+                var xNewPostCurtido = new PostCurtido
+                {
+                    IdPost = IDPost,
+                    IdUsuario = IDUsuario,
+                    DataCurtido = DateTime.Now
+                };
+
+                _context.Add(xNewPostCurtido);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DescurtirPost(int IDPost, int IDUsuario)
+        {
+            try
+            {
+                var xNewPostCurtido = _context.PostsCurtidos.Where(x => x.IdPost == IDPost && x.IdUsuario == IDUsuario);
+                _context.Remove(xNewPostCurtido);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> Comentario(ComentarioRequest request, int IDUsuario)
+        {
+            try
+            {
+                var xNewPostComentario = new PostComentario()
+                {
+                    Comentario = request.Comentario,
+                    DataComentario = DateTime.Now,
+                    IdUsuario = IDUsuario,
+                    IdPost = request.IDPost
+                };
+                _context.Add(xNewPostComentario);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

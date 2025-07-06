@@ -1,6 +1,5 @@
-﻿using ApiBlog.Auth.Models;
-using ApiBlog.Interacao.Models;
-using ApiBlog.Post.Models;
+﻿using ApiBlog.Post.Models;
+using ApiBlog.Usuario.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

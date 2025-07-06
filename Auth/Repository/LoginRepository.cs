@@ -1,5 +1,4 @@
-﻿using ApiBlog.Auth.Models;
-using ApiBlog.Data;
+﻿using ApiBlog.Data;
 using ApiBlog.Features.Auth.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

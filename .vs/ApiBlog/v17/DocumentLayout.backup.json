@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\Repos\\ApiBlog\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|e:\\repos\\apiblog\\auth\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B5DF35A-D0C6-4CF3-81A4-47F2CF4DDF9D}|ApiBlog.csproj|solutionrelative:auth\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Repos\\ApiBlog\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Repos\\ApiBlog\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T22:33:05.208Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{809f6ff3-8092-454a-8003-6d4091f9b5bb}"
@@ -70,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Auth\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Auth\\Controllers\\AuthController.cs",
@@ -83,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PostComentarioModel.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Interacao\\Models\\PostComentarioModel.cs",
               "RelativeDocumentMoniker": "Interacao\\Models\\PostComentarioModel.cs",
@@ -91,12 +108,11 @@
               "RelativeToolTip": "Interacao\\Models\\PostComentarioModel.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T22:30:47.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T22:30:47.018Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PostCurtidoModel.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Interacao\\Models\\PostCurtidoModel.cs",
               "RelativeDocumentMoniker": "Interacao\\Models\\PostCurtidoModel.cs",
@@ -104,12 +120,11 @@
               "RelativeToolTip": "Interacao\\Models\\PostCurtidoModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T22:29:57.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T22:29:57.477Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "InteracaoRepository.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Interacao\\Repository\\InteracaoRepository.cs",
               "RelativeDocumentMoniker": "Interacao\\Repository\\InteracaoRepository.cs",
@@ -117,8 +132,7 @@
               "RelativeToolTip": "Interacao\\Repository\\InteracaoRepository.cs",
               "ViewState": "AgIAAEgAAAAAAAAAAAAIwGIAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T21:44:03.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T21:44:03.146Z"
             }
           ]
         }
@@ -143,7 +157,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PostRepository.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Post\\Repository\\PostRepository.cs",
               "RelativeDocumentMoniker": "Post\\Repository\\PostRepository.cs",
@@ -177,7 +191,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PostController.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Post\\Controllers\\PostController.cs",
               "RelativeDocumentMoniker": "Post\\Controllers\\PostController.cs",
@@ -185,12 +199,11 @@
               "RelativeToolTip": "Post\\Controllers\\PostController.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAA1wCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T21:59:21.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T21:59:21.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "InteracaoController.cs",
               "DocumentMoniker": "E:\\Repos\\ApiBlog\\Interacao\\Controllers\\InteracaoController.cs",
               "RelativeDocumentMoniker": "Interacao\\Controllers\\InteracaoController.cs",

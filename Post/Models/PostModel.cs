@@ -1,7 +1,6 @@
 ﻿namespace ApiBlog.Post.Models
 {
-    using ApiBlog.Auth.Models;
-    using ApiBlog.Interacao.Models;
+    using ApiBlog.Usuario.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

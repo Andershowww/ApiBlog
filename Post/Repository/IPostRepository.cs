@@ -10,5 +10,8 @@ namespace ApiBlog.Post.Repository
         Task AtualizarPost(Models.Post Post);
         Task AtualizarTagsDoPost(int IDPost, List<int> novasTags);
         Task<bool> DeletaPost(int IDPost);
+        Task<bool> CurtirPost(int IDPost, int IDUsuario);
+        Task<bool> DescurtirPost(int IDPost, int IDUsuario);
+        Task<bool> Comentario(ComentarioRequest request, int IDUsuario);
     }
 }
