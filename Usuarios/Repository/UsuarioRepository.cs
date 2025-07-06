@@ -14,10 +14,10 @@ namespace ApiBlog.Usuarios.Repository
         {
             _context = context;
         }
-        public async Task<Models.Usuario> CadastraNovoUsuario(RegisterRequest registroNovoUsuario)
+        public async Task<Usuario> CadastraNovoUsuario(RegisterRequest registroNovoUsuario)
         {
-            var hasher = new PasswordHasher<Models.Usuario>();
-            Models.Usuario xNewUser = new Models.Usuario();
+            var hasher = new PasswordHasher<Usuario>();
+            Models.Usuario xNewUser = new Usuario();
             xNewUser.Username = registroNovoUsuario.Username;
             xNewUser.Email = registroNovoUsuario.Email;
             xNewUser.Ativo = true;
@@ -27,7 +27,6 @@ namespace ApiBlog.Usuarios.Repository
             await _context.SaveChangesAsync();
             return xNewUser;
         }
-
         public async Task<bool> UsuarioExisteAsync(string email, string username)
         {
             return await _context.Usuarios.AnyAsync(u =>
@@ -64,11 +63,10 @@ namespace ApiBlog.Usuarios.Repository
                 {
                     _context.Remove(xNewSeguir);
                     await _context.SaveChangesAsync();
-                    return ResultadoAcao.Falha("Você parou de seguir esse usuário com sucesso!");
+                    return ResultadoAcao.Ok("Você parou de seguir esse usuário com sucesso!");
                 }
                 else
                     return ResultadoAcao.Falha("Você já deixou de seguir esse usuário!");
-
             }
             catch (Exception ex)
             {

@@ -42,7 +42,8 @@ namespace ApiBlog.Auth.Controllers
             return Ok(new AuthResponse
             {
                 Token = _tokenService.GenerateToken(usuario),
-                Username = usuario.Username
+                Username = usuario.Username,
+                Email= usuario.Email              
             });
         }
 
