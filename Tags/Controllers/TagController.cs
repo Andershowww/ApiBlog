@@ -22,7 +22,7 @@ namespace ApiBlog.Tag.Controllers
 
 
         [EnableCors]
-        [HttpGet("sugestoes")]
+        [HttpGet("Sugestoes")]
         public async Task<IActionResult> ListarSugestoes([FromQuery] string? busca)
         {
             var sugestoes = await _tagRepository.BuscarTagsPorNome(busca);

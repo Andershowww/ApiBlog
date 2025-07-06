@@ -3,6 +3,7 @@ using ApiBlog.Post.DTO;
 using ApiBlog.Post.Repository;
 using ApiBlog.Tag.DTO;
 using ApiBlog.Tag.Repository;
+using ApiBlog.Timeline.DTO;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -60,8 +61,8 @@ namespace ApiBlog.Post.Controllers
         }
 
         [EnableCors]
-        [HttpPut("Editar/{id}")]
-        public async Task<IActionResult> EditarPost(int IDPost, PostUpdateRequest postAtualizado)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> EditarPost(int id, PostUpdateRequest postAtualizado)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -71,7 +72,7 @@ namespace ApiBlog.Post.Controllers
                 return Unauthorized("Usuário não autenticado.");
 
             int idUsuario = int.Parse(userIdClaim.Value);
-            var postExistente = await _postRepository.ObterPostPorID(IDPost);
+            var postExistente = await _postRepository.ObterPostPorID(id);
             if (postExistente == null)
                 return NotFound("Post não encontrado.");
 
@@ -88,7 +89,7 @@ namespace ApiBlog.Post.Controllers
         }
 
         [EnableCors]
-        [HttpPut("Editar/{id}/tags")]
+        [HttpPut("Editar/{id}/Tags")]
         public async Task<IActionResult> EditarPostTags(int id, TagRequest Tags)
         {
             if (!ModelState.IsValid)
@@ -137,7 +138,7 @@ namespace ApiBlog.Post.Controllers
         }
 
         [EnableCors]
-        [HttpPost("Curtir/{id}")]
+        [HttpPost("{id}/Curtir")]
         public async Task<IActionResult> Curtir(int id)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
@@ -151,14 +152,14 @@ namespace ApiBlog.Post.Controllers
         }
 
         [EnableCors]
-        [HttpDelete("Descurtir/{id}")]
+        [HttpDelete("{id}/Curtida")]
         public async Task<IActionResult> Descurtir(int id)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
                 return Unauthorized("Usuário não autenticado.");
             int idUsuario = int.Parse(userIdClaim.Value);
-            bool descurtiu = await _postRepository.DescurtirPost(id, idUsuario);
+            bool descurtiu = await _postRepository.RemoverCurtidaPost(id, idUsuario);
             if (!descurtiu)
                 return BadRequest("Ocorreu um erro ao dar dislike esse post, tente novamente mais tarde.");
             return Ok("Você deu dislike nesse post com sucesso.");
@@ -176,6 +177,21 @@ namespace ApiBlog.Post.Controllers
             if (!comentou)
                 return BadRequest("Ocorreu um erro ao comentar nesse post, tente novamente mais tarde.");
             return Ok("Comentário salvo com sucesso.");
+        }
+
+        [EnableCors]
+        [HttpGet("{idUsuario}/Posts")]
+        public async Task<IActionResult> BuscarPostsPerfil(int idUsuario)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                return Unauthorized("Usuário não autenticado.");
+
+            var posts = await _postRepository.BuscarPostsUser(idUsuario);
+            if (posts == null || !posts.Any())
+                return NotFound("Esse usuário ainda não possui posts.");
+
+            return Ok(posts);
         }
     }
 }

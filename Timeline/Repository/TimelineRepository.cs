@@ -12,7 +12,7 @@ namespace ApiBlog.Timeline.Repository
             _context = context;
         }
 
-        public async Task<List<TimelinePostsReponse>> BuscarTimeLine(int IDUsuario, List<string>? tag = null)
+        public async Task<List<TimelinePostsReponse>> BuscarTimeLine(int IDUsuario, List<string>? tags = null)
         {
             var idsSeguidos = _context.UsuariosSeguidos
                             .Where(u => u.IdUsuario == IDUsuario)
@@ -22,13 +22,15 @@ namespace ApiBlog.Timeline.Repository
             var postsUserSeguidos = _context.Posts
                           .Where(p => idsSeguidos.Contains(p.IdUsuario))
                           .Include(p => p.Curtidas)
+                          .Include(p => p.Usuario)
                           .Include(p => p.PostTags)
+                           .ThenInclude(pt => pt.Tag)
                           .Include(p => p.Comentarios)
                           .ToList();
-            if (tag != null && tag.Count() > 0)
+            if (tags != null && tags.Count() > 0)
             {
                 postsUserSeguidos = postsUserSeguidos
-                    .Where(p => p.PostTags.Any(pt => tag.Contains(pt.Tag.Nome)))
+                    .Where(p => p.PostTags.Any(pt => tags.Contains(pt.Tag.Nome)))
                     .ToList();
             }
 
@@ -53,17 +55,24 @@ namespace ApiBlog.Timeline.Repository
 
             return timeline;
         }
-        public async Task<List<TimelinePostsReponse>> BuscarTopPosts24h()
+        public async Task<List<TimelinePostsReponse>> BuscarTopPosts24h(List<string>? tags = null)
         {
             var postsMaisCurtidos = _context.Posts
                           .Where(p => p.DataCriacao <= DateTime.Now && p.DataCriacao >= DateTime.Now.AddDays(-1))
                           .Include(p => p.Curtidas)
+                          .Include(p => p.Usuario)
                           .Include(p => p.PostTags)
+                           .ThenInclude(pt => pt.Tag)
                           .Include(p => p.Comentarios)
                           .OrderByDescending(p => p.Curtidas.Count)
                           .ToList();
 
-
+            if (tags != null && tags.Count() > 0)
+            {
+                postsMaisCurtidos = postsMaisCurtidos
+                    .Where(p => p.PostTags.Any(pt => tags.Contains(pt.Tag.Nome)))
+                    .ToList();
+            }
             var timeline = postsMaisCurtidos.Select(p => new TimelinePostsReponse
             {
                 PostId = p.IDPost,

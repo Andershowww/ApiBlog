@@ -9,6 +9,7 @@ using System.Text;
 using ApiBlog.Post.Repository;
 using ApiBlog.Tag.Repository;
 using ApiBlog.Usuarios.Repository;
+using ApiBlog.Timeline.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -91,6 +92,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<ITimelineRepository, TimelineRepository>();
 
 var app = builder.Build();
 

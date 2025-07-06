@@ -52,7 +52,7 @@ namespace ApiBlog.Usuarios.Repository
         {
             try
             {
-                var xNewSeguir = _context.UsuariosSeguidos.Where(x => x.IdUsuarioSeguido == IDUsuarioSeguido && x.IdUsuario == IDUsuario);
+                var xNewSeguir = _context.UsuariosSeguidos.Where(x => x.IdUsuarioSeguido == IDUsuarioSeguido && x.IdUsuario == IDUsuario).FirstOrDefault();
                 if (xNewSeguir != null)
                 {
                     _context.Remove(xNewSeguir);

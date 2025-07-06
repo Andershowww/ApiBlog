@@ -6,6 +6,8 @@ using ApiBlog.Post.DTO;
 using ApiBlog.Post.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using ApiBlog.Timeline.DTO;
+using ApiBlog.Usuarios.Models;
 
 
 namespace ApiBlog.Post.Repository
@@ -74,7 +76,7 @@ namespace ApiBlog.Post.Repository
         public async Task<bool> DeletaPost(int IDPost)
         {
             var post = _context.Posts.Where(p => p.IDPost == IDPost).FirstOrDefault();
-            if(post!=null)
+            if (post != null)
             {
                 _context.Posts.Remove(post);
                 await _context.SaveChangesAsync();
@@ -103,7 +105,7 @@ namespace ApiBlog.Post.Repository
             }
         }
 
-        public async Task<bool> DescurtirPost(int IDPost, int IDUsuario)
+        public async Task<bool> RemoverCurtidaPost(int IDPost, int IDUsuario)
         {
             try
             {
@@ -128,7 +130,7 @@ namespace ApiBlog.Post.Repository
                     DataComentario = DateTime.Now,
                     IdUsuario = IDUsuario,
                     IdPost = request.IDPost,
-                    Ativo= true
+                    Ativo = true
                 };
                 _context.Add(xNewPostComentario);
                 await _context.SaveChangesAsync();
@@ -138,6 +140,36 @@ namespace ApiBlog.Post.Repository
             {
                 return false;
             }
+        }
+
+        public async Task<List<TimelinePostsReponse>> BuscarPostsUser(int IDUsuario)
+        {
+            return await _context.Posts.Where(p => p.IdUsuario == IDUsuario)
+                 .Include(p => p.Curtidas)
+                 .Include(p => p.Comentarios)
+                 .Include(p => p.Usuario)
+                 .Include(p => p.PostTags)
+                 .ThenInclude(pt => pt.Tag)
+                 .OrderByDescending(p => p.DataCriacao)
+                 .Select(p => new TimelinePostsReponse
+                 {
+                     PostId = p.IDPost,
+                     Titulo = p.Titulo,
+                     Corpo = p.Corpo,
+                     DataCriacao = p.DataCriacao,
+                     TotalCurtidas = p.Curtidas.Count,
+                     Tags = p.PostTags.Select(pt => pt.Tag.Nome).ToList(),
+                     AutorId=p.IdUsuario,
+                     AutorUsername=p.Usuario.Username,
+                     Comentarios = p.Comentarios.Select(c => new ComentarioResponse
+                     {
+                         IdUsuario = c.IdUsuario,
+                         NomeUsuario = c.Usuario.Username,
+                         Texto = c.Comentario,
+                         DataComentario = c.DataComentario
+                     }).ToList()
+
+                 }).ToListAsync();
         }
     }
 }

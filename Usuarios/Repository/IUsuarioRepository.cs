@@ -8,5 +8,6 @@ namespace ApiBlog.Usuarios.Repository
         Task<bool> UsuarioExisteAsync(string email, string username);
         Task<bool> SeguirUsuario(int IDUsuarioSeguido, int IDUsuario);
         Task<bool> DeixarDeSeguirUsuario(int IDUsuarioSeguido, int IDUsuario);
+      
     }
 }

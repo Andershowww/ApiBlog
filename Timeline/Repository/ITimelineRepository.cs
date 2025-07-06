@@ -8,7 +8,7 @@ namespace ApiBlog.Timeline.Repository
     {
 
         Task<List<TimelinePostsReponse>> BuscarTimeLine(int IDUsuario, List<string>? tag = null);
-        Task<List<TimelinePostsReponse>> BuscarTopPosts24h();
+        Task<List<TimelinePostsReponse>> BuscarTopPosts24h(List<string>? tag = null);
 
     }
 }

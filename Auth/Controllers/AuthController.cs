@@ -27,7 +27,7 @@ namespace ApiBlog.Auth.Controllers
         }
 
         [EnableCors]
-        [HttpPost("registro")]
+        [HttpPost("Registro")]
         public async Task<ActionResult<AuthResponse>> Registro(RegisterRequest registroNovoUsuario)
         {
             if (!ModelState.IsValid)
@@ -48,7 +48,7 @@ namespace ApiBlog.Auth.Controllers
         }
 
         [EnableCors]
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<ActionResult<AuthResponse>> Login(LoginRequest login)
         {
             if (!ModelState.IsValid)

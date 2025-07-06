@@ -1,4 +1,5 @@
 ﻿using ApiBlog.Post.DTO;
+using ApiBlog.Timeline.DTO;
 
 namespace ApiBlog.Post.Repository
 {
@@ -11,7 +12,9 @@ namespace ApiBlog.Post.Repository
         Task AtualizarTagsDoPost(int IDPost, List<int> novasTags);
         Task<bool> DeletaPost(int IDPost);
         Task<bool> CurtirPost(int IDPost, int IDUsuario);
-        Task<bool> DescurtirPost(int IDPost, int IDUsuario);
+        Task<bool> RemoverCurtidaPost(int IDPost, int IDUsuario);
         Task<bool> Comentario(ComentarioRequest request, int IDUsuario);
+        Task<List<TimelinePostsReponse>> BuscarPostsUser(int IDUsuario);
+        
     }
 }

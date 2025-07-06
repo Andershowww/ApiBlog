@@ -21,7 +21,7 @@ namespace ApiBlog.Usuarios.Controllers
             _usuarioRepository= usuarioRepository;
         }
         [EnableCors]
-        [HttpPost("Seguir/{id}")]
+        [HttpPost("{id}/Seguir")]
         public async Task<IActionResult> SeguirUsuario(int id)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
@@ -37,7 +37,7 @@ namespace ApiBlog.Usuarios.Controllers
         }
 
         [EnableCors]
-        [HttpDelete("DeixarDeSeguirUsuario/{id}")]
+        [HttpDelete("{id}/Seguir")]
         public async Task<IActionResult> DeixarDeSeguir(int id)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
