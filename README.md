@@ -25,7 +25,7 @@ Cada pasta e classe têm responsabilidade única, facilitando entendimento e man
 
 ### 1. Clonar o repositório
 ```bash
-git clone https://seurepositorio.git
+git clone https://github.com/Andershowww/ApiBlog
 cd ApiBlog
 ```
 
