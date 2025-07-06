@@ -40,7 +40,7 @@ namespace ApiBlog.Usuarios.Repository
                 {
                     IdUsuario = IDUsuario,
                     IdUsuarioSeguido = IDUsuarioSeguido,
-                    DataSeguimento = DateTime.Now,
+                    Data = DateTime.Now,
                 };
                 _context.Add(xNewSeguir);
                 await _context.SaveChangesAsync();

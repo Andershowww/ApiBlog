@@ -14,6 +14,6 @@ namespace ApiBlog.Usuarios.Models
         public int IdUsuarioSeguido { get; set; }
         public Usuario UsuarioSeguidoRef { get; set; }
 
-        public DateTime DataSeguimento { get; set; } = DateTime.UtcNow;
+        public DateTime Data { get; set; } = DateTime.UtcNow;
     }
 }
