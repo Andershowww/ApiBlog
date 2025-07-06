@@ -1,4 +1,4 @@
-﻿using ApiBlog.Auth.Models;
+﻿using ApiBlog.Usuarios.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiBlog.Post.Models

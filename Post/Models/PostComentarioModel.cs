@@ -1,6 +1,6 @@
-﻿using ApiBlog.Auth.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using ApiBlog.Usuarios.Models;
 
 namespace ApiBlog.Post.Models
 {

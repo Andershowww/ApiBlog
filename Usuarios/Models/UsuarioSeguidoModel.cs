@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApiBlog.Auth.Models
+namespace ApiBlog.Usuarios.Models
 {
 
     [Table("UsuarioSeguido")]
@@ -14,6 +14,6 @@ namespace ApiBlog.Auth.Models
         public int IdUsuarioSeguido { get; set; }
         public Usuario UsuarioSeguidoRef { get; set; }
 
-        public DateTime DataSeguimento { get; set; } = DateTime.UtcNow;
+        public DateTime Data { get; set; } = DateTime.UtcNow;
     }
 }
