@@ -1,4 +1,4 @@
-﻿using ApiBlog.Auth.Models;
+﻿using ApiBlog.Auth;
 using ApiBlog.Data;
 using ApiBlog.Features.Auth.DTOs;
 using ApiBlog.Features.Auth;
@@ -6,7 +6,7 @@ using ApiBlog.Post.DTO;
 using ApiBlog.Post.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using ApiBlog.Interacao.Models;
+
 
 namespace ApiBlog.Post.Repository
 {
@@ -127,7 +127,8 @@ namespace ApiBlog.Post.Repository
                     Comentario = request.Comentario,
                     DataComentario = DateTime.Now,
                     IdUsuario = IDUsuario,
-                    IdPost = request.IDPost
+                    IdPost = request.IDPost,
+                    Ativo= true
                 };
                 _context.Add(xNewPostComentario);
                 await _context.SaveChangesAsync();

@@ -1,10 +1,10 @@
 ﻿using ApiBlog.Data;
 using ApiBlog.Features.Auth.DTOs;
-using ApiBlog.Usuario.Models;
+using ApiBlog.Usuarios.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiBlog.Usuario.Repository
+namespace ApiBlog.Usuarios.Repository
 {
     public class UsuarioRepository : IUsuarioRepository
     {

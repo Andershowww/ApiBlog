@@ -2,6 +2,7 @@
 using ApiBlog.Features.Auth.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ApiBlog.Usuarios.Models;
 
 namespace ApiBlog.Auth.Repository
 {

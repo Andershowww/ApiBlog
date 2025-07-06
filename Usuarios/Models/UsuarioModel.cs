@@ -1,4 +1,4 @@
-﻿namespace ApiBlog.Usuario.Models
+﻿namespace ApiBlog.Usuarios.Models
 {
     using ApiBlog.Post.Models;
     using Microsoft.Extensions.Hosting;

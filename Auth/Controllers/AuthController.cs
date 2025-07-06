@@ -1,7 +1,7 @@
 ﻿using ApiBlog.Auth.Repository;
 using ApiBlog.Features.Auth;
 using ApiBlog.Features.Auth.DTOs;
-using ApiBlog.Usuario.Repository;
+using ApiBlog.Usuarios.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;

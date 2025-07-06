@@ -8,8 +8,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using ApiBlog.Post.Repository;
 using ApiBlog.Tag.Repository;
-using ApiBlog.Interacao.Repository;
-using ApiBlog.Usuario.Repository;
+using ApiBlog.Usuarios.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,7 +91,6 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ILoginRepository, LoginRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
-builder.Services.AddScoped<IInteracaoRepository, InteracaoRepository>();
 
 var app = builder.Build();
 

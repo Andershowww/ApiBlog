@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ApiBlog.Usuario.Models
+namespace ApiBlog.Usuarios.Models
 {
 
     [Table("UsuarioSeguido")]

@@ -1,5 +1,5 @@
 ﻿using ApiBlog.Post.Models;
-using ApiBlog.Usuario.Models;
+using ApiBlog.Usuarios.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +49,11 @@ namespace ApiBlog.Data
                 .HasKey(pt => new { pt.IdPost, pt.IdTag });
 
             modelBuilder.Entity<PostComentario>()
-                .HasKey(pc => new { pc.IdPost, pc.IdUsuario, pc.DataComentario });
+         .HasKey(pc => pc.IdComentario);
+
+            modelBuilder.Entity<PostComentario>()
+                .Property(pc => pc.IdComentario)
+                .ValueGeneratedOnAdd();
         }
     }
 }

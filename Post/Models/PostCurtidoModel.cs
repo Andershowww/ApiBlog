@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using ApiBlog.Usuarios.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiBlog.Post.Models
 {
@@ -11,7 +12,7 @@ namespace ApiBlog.Post.Models
 
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
-        public Usuario.Models.Usuario Usuario { get; set; }
+        public Usuario Usuario { get; set; }
 
         public DateTime DataCurtido { get; set; } = DateTime.UtcNow;
     }

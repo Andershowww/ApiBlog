@@ -1,6 +1,6 @@
 ﻿namespace ApiBlog.Post.Models
 {
-    using ApiBlog.Usuario.Models;
+    using ApiBlog.Usuarios.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

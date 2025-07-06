@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using ApiBlog.Usuarios.Models;
 
 namespace ApiBlog.Post.Models
 {
@@ -15,7 +16,7 @@ namespace ApiBlog.Post.Models
 
         [ForeignKey("Usuario")]
         public int IdUsuario { get; set; }
-        public Usuario.Models.Usuario Usuario { get; set; }
+        public Usuario Usuario { get; set; }
 
         [Required]
         public string Comentario { get; set; }

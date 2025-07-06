@@ -43,7 +43,6 @@ namespace ApiBlog.Post.Controllers
 
             int idUsuario = int.Parse(userIdClaim.Value);
 
-            // Cria o post
             var postCriado = await _postRepository.CadastrarPost(post, idUsuario);
 
             if (postCriado == null)
@@ -114,10 +113,10 @@ namespace ApiBlog.Post.Controllers
             return Ok("Tags atualizadas com sucesso.");
         }
 
+        [EnableCors]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletarPost(int id)
         {
-    
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
                 return Unauthorized("Usuário não autenticado.");
@@ -131,10 +130,52 @@ namespace ApiBlog.Post.Controllers
                 return Forbid("Você não tem permissão para editar este post.");
 
             bool deletou = await _postRepository.DeletaPost(id);
-            if(!deletou)
+            if (!deletou)
                 return BadRequest("Ocorreu um erro ao deletar o post.");
 
             return Ok("Post deletado com sucesso.");
+        }
+
+        [EnableCors]
+        [HttpPost("Curtir/{id}")]
+        public async Task<IActionResult> Curtir(int id)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                return Unauthorized("Usuário não autenticado.");
+            int idUsuario = int.Parse(userIdClaim.Value);
+            bool curtiu = await _postRepository.CurtirPost(id, idUsuario);
+            if (!curtiu)
+                return BadRequest("Ocorreu um erro ao curtir esse post, tente novamente mais tarde.");
+            return Ok("Post curtido com sucesso.");
+        }
+
+        [EnableCors]
+        [HttpDelete("Descurtir/{id}")]
+        public async Task<IActionResult> Descurtir(int id)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                return Unauthorized("Usuário não autenticado.");
+            int idUsuario = int.Parse(userIdClaim.Value);
+            bool descurtiu = await _postRepository.DescurtirPost(id, idUsuario);
+            if (!descurtiu)
+                return BadRequest("Ocorreu um erro ao dar dislike esse post, tente novamente mais tarde.");
+            return Ok("Você deu dislike nesse post com sucesso.");
+        }
+
+        [EnableCors]
+        [HttpPost("Comentario")]
+        public async Task<IActionResult> Comentario(ComentarioRequest request)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+                return Unauthorized("Usuário não autenticado.");
+            int idUsuario = int.Parse(userIdClaim.Value);
+            bool comentou = await _postRepository.Comentario(request, idUsuario);
+            if (!comentou)
+                return BadRequest("Ocorreu um erro ao comentar nesse post, tente novamente mais tarde.");
+            return Ok("Comentário salvo com sucesso.");
         }
     }
 }
