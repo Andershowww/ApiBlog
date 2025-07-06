@@ -19,6 +19,7 @@ Controllers organizados por recurso/entidade, expondo endpoints claros e padroni
 
 Separação por responsabilidade
 Cada pasta e classe têm responsabilidade única, facilitando entendimento e manutenção do código.
+
 ---
 
 ## 🚀 Como rodar o projeto localmente
@@ -30,7 +31,7 @@ cd ApiBlog
 ```
 
 ### 2. Configurar o arquivo appsettings.json
-Configure a conexão com seu banco de dados SQL Server editando o arquivo appsettings.json. Exemplo:
+Configure a conexão com seu banco de dados SQL Server editando o arquivo appsettings-exemplo.json. Exemplo:
 {
   "ConnectionStrings": {
     "DefaultConnection": "Data Source=SEU_SERVIDOR;Initial Catalog=SEU_BANCO;User ID=SEU_USUARIO;Password=SUA_SENHA;TrustServerCertificate=True;"
@@ -42,6 +43,7 @@ Configure a conexão com seu banco de dados SQL Server editando o arquivo appset
     "ExpireMinutes": 60
   }
 }
+Altere o nome para appsettings.json após inserir seus dados de banco de dados!
 
 ### 3. O banco disponibilizado ja contem informacoes de usuarios, posts, tags, tudo para um teste com informações de exemplo
 
